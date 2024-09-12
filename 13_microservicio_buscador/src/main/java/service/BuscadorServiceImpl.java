@@ -40,7 +40,7 @@ public class BuscadorServiceImpl implements BuscadorService {
 	@Override
 	public ResultadoDto buscarPorUrl(String url) {
 		Resultado r=buscadorDao.findByUrl(url);
-		return r!=null?mapeador.resultadoEntityToDto(r):null;
+		return r!=null?mapeador.resultadoEntityToDto(r):new ResultadoDto();
 	}
 
 	@Override

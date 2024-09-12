@@ -11,23 +11,23 @@ import jakarta.persistence.Table;
 public class Resultado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idResultado;
+	private int idResultados;
 	private String url;
 	private String tematica;
 	private String descripcion;
 	public Resultado(int idResultado, String url, String tematica, String descripcion) {
-		this.idResultado = idResultado;
+		this.idResultados = idResultado;
 		this.url = url;
 		this.tematica = tematica;
 		this.descripcion = descripcion;
 	}
 	public Resultado() {
 	}
-	public int getIdResultado() {
-		return idResultado;
+	public int getIdResultados() {
+		return idResultados;
 	}
-	public void setIdResultado(int idResultado) {
-		this.idResultado = idResultado;
+	public void setIdResultados(int idResultado) {
+		this.idResultados = idResultado;
 	}
 	public String getUrl() {
 		return url;
