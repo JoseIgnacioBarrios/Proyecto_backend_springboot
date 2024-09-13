@@ -1,0 +1,38 @@
+server:
+  port: 11000
+spring:
+  application:
+    name: servidor-gateway
+  cloud:
+    gateway:
+#SERVICO CROSS
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+#SERVICIO PARA DE GATEWAY
+
+
+#PARA CADA SERVICIO REPETIR ESTO XXXXXXXX
+      routes:
+      - id: serv-libreria
+        uri: lb://servicio-libreria
+        predicates:
+        - Path=/slibreria/**
+        filters:
+        - RewritePath=/slibreria/*,/
+#XXXXXXXXXX
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+

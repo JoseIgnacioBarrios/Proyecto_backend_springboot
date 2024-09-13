@@ -1,0 +1,11 @@
+server:
+  port: 10000
+  servlet:
+    context-path: /libreria
+spring:
+  application:
+    name: servicio-libreria
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8761/eureka"
