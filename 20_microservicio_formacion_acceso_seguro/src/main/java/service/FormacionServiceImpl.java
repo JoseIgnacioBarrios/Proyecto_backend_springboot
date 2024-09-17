@@ -21,7 +21,9 @@ public class FormacionServiceImpl implements FormacionService {
 	
 	
 	//direccion base
-	String url= "http://localhost:8000/cursos/";
+	@Value("${url.cursos}")
+	String url;
+	//String url= "http://localhost:8000/cursos/";
 	RestClient restClient;
 	
 	public FormacionServiceImpl(RestClient restClient) {
