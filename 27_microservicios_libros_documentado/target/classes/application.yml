@@ -1,0 +1,30 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+server:
+# si elegimos el puerto 0 significa que cogera el primer puerto libre
+  port: 9000
+  servlet:
+    context-path: /libros
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/libros
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  application:
+    name: servicio-libros
+
+eureka:
+#nombre de instancia con balanceo Ribon
+  instance:
+    instance-id: libros1 
+  client:
+    service-url:
+      defauldtZone: http://localhost:8761/eureka
