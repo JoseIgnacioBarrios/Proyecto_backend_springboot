@@ -22,11 +22,11 @@ public class FormacionServiceImpl implements FormacionService {
 	
 	
 	//direccion base
-	@Value("${url.servicio.cursos}")
-	String url;
-	
-	@Value("${port.servicio.curso}")
-	String port;
+//	@Value("${url.servicio.cursos}")
+//	String url;
+//	
+//	@Value("${port.servicio.curso}")
+//	String port;
 	//String url= "http://localhost:8000/cursos/";
 	
 	String urlAll;
@@ -40,7 +40,9 @@ public class FormacionServiceImpl implements FormacionService {
 	//se ejecuta luego del metodo constructor
 	@PostConstruct
 	public void init() {
-		urlAll="http://"+url+":"+port+"/cursos/";
+		//urlAll="http://"+url+":"+port+"/cursos/";
+		//ahora con EUREKA
+		urlAll="http://servicio-cursos/cursos/";
 	}
 	
 	@Override
@@ -64,7 +66,7 @@ public class FormacionServiceImpl implements FormacionService {
 	public void altaformacion(Formacion formacion) {
 		restClient
 			.post()
-			.uri(url+"alta")
+			.uri(urlAll+"alta")
 			.contentType(MediaType.APPLICATION_JSON)//el valorJ sera transformado en json
 			.body(formacion)//enviamos la peticion de este valorJ 
 			.retrieve()//retrieve ejecuta la configuracion que hicimos con post, uri, contentType
